@@ -1,0 +1,19 @@
+{
+  "name": "ptero-web",
+  "version": "1.0.0",
+  "description": "Dashboard web multi-user untuk kelola & bersihin server Pterodactyl (PTLA/PTLC), login sendiri, tema neobrutalism",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "better-sqlite3": "^11.3.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "cookie-parser": "^1.4.6",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5"
+  }
+}
