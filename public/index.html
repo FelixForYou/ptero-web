@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Panel • Kelola Server</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<!-- ===== AUTH SCREEN ===== -->
+<div id="auth-screen" class="auth-wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-badge">PW</div>
+      <div>
+        <h1>Panel<span class="dot">.</span></h1>
+        <p class="sub">Kelola server-mu, bukan drama-nya.</p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="login">Masuk</button>
+      <button class="tab-btn" data-tab="register">Daftar</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="login-form" class="auth-form">
+      <label>Username
+        <input type="text" id="login-username" autocomplete="username" required />
+      </label>
+      <label>Password
+        <input type="password" id="login-password" autocomplete="current-password" required />
+      </label>
+      <div class="form-msg" id="login-msg"></div>
+      <button type="submit" class="btn btn-primary btn-block">Masuk →</button>
+    </form>
+
+    <!-- REGISTER -->
+    <form id="register-form" class="auth-form hidden">
+      <label>Username
+        <input type="text" id="reg-username" placeholder="huruf/angka/underscore, 3-20" required />
+      </label>
+      <label>Password
+        <input type="password" id="reg-password" required />
+      </label>
+      <div class="strength-row">
+        <div class="strength-bar"><span id="strength-fill"></span></div>
+        <span id="strength-label">-</span>
+      </div>
+      <button type="button" id="gen-pass-btn" class="btn btn-ghost btn-sm">🎲 Sarankan password kuat</button>
+      <div class="form-msg" id="register-msg"></div>
+      <button type="submit" class="btn btn-primary btn-block">Buat Akun →</button>
+    </form>
+
+    <p class="tiny-note">Tanpa nomor HP, tanpa email. Cukup username &amp; password — semua tersimpan aman di server ini.</p>
+  </div>
+</div>
+
+<!-- ===== APP SHELL ===== -->
+<div id="app-shell" class="app-shell hidden">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-badge sm">PW</div>
+      <span id="page-title">Dashboard</span>
+    </div>
+    <div class="topbar-right">
+      <span id="whoami" class="chip"></span>
+      <button id="logout-btn" class="btn btn-danger btn-sm">Keluar</button>
+    </div>
+  </header>
+
+  <main id="page-content" class="page-content"></main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-page="dashboard">
+      <span class="nav-icon">🏠</span><span>Dashboard</span>
+    </button>
+    <button class="nav-btn" data-page="servers">
+      <span class="nav-icon">🖥️</span><span>Server</span>
+    </button>
+    <button class="nav-btn nav-btn-center" data-page="clean">
+      <span class="nav-icon">🧹</span>
+    </button>
+    <button class="nav-btn" data-page="nodes">
+      <span class="nav-icon">🗂️</span><span>Node</span>
+    </button>
+    <button class="nav-btn" data-page="settings">
+      <span class="nav-icon">⚙️</span><span>Setelan</span>
+    </button>
+  </nav>
+</div>
+
+<!-- ===== MODAL ===== -->
+<div id="modal-overlay" class="modal-overlay hidden">
+  <div class="modal-card">
+    <h3 id="modal-title">Konfirmasi</h3>
+    <div id="modal-body"></div>
+    <div class="modal-actions">
+      <button id="modal-cancel" class="btn btn-ghost">Batal</button>
+      <button id="modal-confirm" class="btn btn-danger">Ya, Lanjutkan</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast-container" class="toast-container"></div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
